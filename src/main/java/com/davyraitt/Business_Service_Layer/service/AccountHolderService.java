@@ -28,7 +28,7 @@ public class AccountHolderService {
         for (int i = 0; i < accountList.size(); i++) {
 
             //if BSN already exists we wont add it
-            if (accountList.get(i).getBsn() == accountToSave.getBsn())
+            if (accountList.get(i).getBsn().equals(accountToSave.getBsn()))
             {
                 return null;
             }
