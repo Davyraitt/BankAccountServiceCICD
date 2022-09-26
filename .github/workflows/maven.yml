@@ -36,7 +36,9 @@ jobs:
 
       - name: Code Analysis
         run: |
-          mvn -B sonar:sonar -Dsonar.projectKey=BankAccountServiceCICD \
+          mvn -B sonar:sonar 
+                -Dsonar.projectName="BankAccountServiceCICDDavy" \ 
+                -Dsonar.projectKey=BankAccountServiceCICD \
                 -Dsonar.host.url=http://sonar.cloud-native-minor.it \
                 -Dsonar.host.url=http://sonar.cloud-native-minor.it \
                 -Dsonar.login=66d58841310565a0ce131f42d78a931090915738 \
