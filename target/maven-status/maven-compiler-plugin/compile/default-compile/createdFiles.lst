@@ -1,0 +1,16 @@
+com\davyraitt\DataAccess_Repository_Layer\database\entitys\AccountHolder.class
+com\davyraitt\Main.class
+com\davyraitt\Business_Service_Layer\service\BankAccountService.class
+com\davyraitt\DataAccess_Repository_Layer\database\mapperinterfaces\BankAccountMapper.class
+com\davyraitt\DataAccess_Repository_Layer\database\mapperinterfaces\BankAccountMapperImpl.class
+com\davyraitt\DataAccess_Repository_Layer\database\mapperinterfaces\AccountHolderMapperImpl.class
+com\davyraitt\Presentatie_Controller_Layer\dto\AccountHolderDTO.class
+com\davyraitt\DataAccess_Repository_Layer\database\repository\BankAccountRepository.class
+com\davyraitt\Presentatie_Controller_Layer\dto\BankAccountDTO.class
+com\davyraitt\controllers\AccountHolderController.class
+com\davyraitt\DataAccess_Repository_Layer\database\entitys\BankAccount.class
+com\davyraitt\Business_Service_Layer\service\AccountHolderService.class
+com\davyraitt\controllers\BankAccountController.class
+com\davyraitt\DataAccess_Repository_Layer\database\repository\AccountHolderRepository.class
+com\davyraitt\DataAccess_Repository_Layer\database\mapperinterfaces\AccountHolderMapper.class
+com\davyraitt\DataAccess_Repository_Layer\database\entitys\BaseEntity.class

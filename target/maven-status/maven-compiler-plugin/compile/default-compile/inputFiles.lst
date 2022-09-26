@@ -1,0 +1,15 @@
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\controllers\AccountHolderController.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\mapperinterfaces\BankAccountMapper.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\Business_Service_Layer\service\BankAccountService.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\repository\DEPRECATEDBaseRepository.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\entitys\BaseEntity.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\repository\BankAccountRepository.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\Main.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\Presentatie_Controller_Layer\dto\AccountHolderDTO.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\controllers\BankAccountController.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\Presentatie_Controller_Layer\dto\BankAccountDTO.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\mapperinterfaces\AccountHolderMapper.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\Business_Service_Layer\service\AccountHolderService.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\entitys\AccountHolder.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\repository\AccountHolderRepository.java
+C:\Minor\CNSD_Opdrachten_Repository\Module1-Opdr2-3\demo\src\main\java\com\davyraitt\DataAccess_Repository_Layer\database\entitys\BankAccount.java

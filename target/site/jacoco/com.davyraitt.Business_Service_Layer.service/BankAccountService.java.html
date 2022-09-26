@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BankAccountService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.davyraitt.Business_Service_Layer.service</a> &gt; <span class="el_source">BankAccountService.java</span></div><h1>BankAccountService.java</h1><pre class="source lang-java linenums">package com.davyraitt.Business_Service_Layer.service;
+
+import com.davyraitt.DataAccess_Repository_Layer.database.entitys.AccountHolder;
+import com.davyraitt.DataAccess_Repository_Layer.database.entitys.BankAccount;
+import com.davyraitt.DataAccess_Repository_Layer.database.repository.AccountHolderRepository;
+import com.davyraitt.DataAccess_Repository_Layer.database.repository.BankAccountRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+
+@Service
+<span class="fc" id="L17">@RequiredArgsConstructor</span>
+@Transactional
+public class BankAccountService {
+
+    private final AccountHolderRepository accountHolderRepository;
+    private final BankAccountRepository bankAccountRepository;
+
+    public BankAccount create(BankAccount accountToSave, String bsn) {
+        //TODO: checking, returning correct result and error etc..
+
+        //check if BankAccount already exists
+<span class="nc" id="L28">        Optional&lt;BankAccount&gt; bankAccount = bankAccountRepository.findByIBAN(accountToSave.getIBAN());</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (bankAccount.isPresent()) {</span>
+<span class="nc" id="L30">            return null;</span>
+        }
+
+        //check if there is an accountholder with the provided bsn
+<span class="nc" id="L34">        Optional&lt;AccountHolder&gt; accountHolder = accountHolderRepository.findByBsn(bsn);</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (accountHolder.isPresent()) {</span>
+            //IF there is an accountholder with the specified BSN, we add it to the bankaccount
+<span class="nc" id="L37">            accountToSave.addAccountHolder(accountHolder.get());</span>
+        }
+<span class="nc" id="L39">        bankAccountRepository.save(accountToSave);</span>
+<span class="nc" id="L40">        return accountToSave;</span>
+    }
+
+    public List&lt;BankAccount&gt; get() {
+<span class="nc" id="L44">        return bankAccountRepository.findAll();</span>
+    }
+
+    public BankAccount delete(UUID id){
+<span class="nc" id="L48">        Optional&lt;BankAccount&gt; bankAccount = bankAccountRepository.findById(id);</span>
+
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if (bankAccount.isPresent()) {</span>
+<span class="nc" id="L51">            bankAccountRepository.deleteById(id);</span>
+<span class="nc" id="L52">            return bankAccount.get();</span>
+        }
+        else {
+<span class="nc" id="L55">            return null;</span>
+        }
+    }
+
+    public BankAccount patch(UUID id, boolean active){
+//        The Optional class in Java is a container that can hold, at max, one value and gracefully deals with null values.
+//        The class was introduced in the java.
+//        util package to remove the need for multiple null checks to protect against the dreaded NullPointerExceptions during run-time.
+//
+<span class="nc" id="L64">        Optional&lt;BankAccount&gt; bankAccount = bankAccountRepository.findById(id);</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (!bankAccount.isPresent()) {</span>
+<span class="nc" id="L66">            return null;</span>
+        }
+<span class="nc" id="L68">            bankAccount.get().setActive(active);</span>
+<span class="nc" id="L69">            bankAccountRepository.save(bankAccount.get());</span>
+<span class="nc" id="L70">            return bankAccount.get();</span>
+    }
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

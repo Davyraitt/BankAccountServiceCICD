@@ -1,0 +1,13 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+demo,com.davyraitt.controllers,AccountHolderController,56,25,4,0,10,7,5,2,3,2
+demo,com.davyraitt.controllers,BankAccountController,66,11,6,0,13,4,7,1,4,1
+demo,com.davyraitt.Business_Service_Layer.service,AccountHolderService,72,9,8,0,18,1,8,1,4,1
+demo,com.davyraitt.Business_Service_Layer.service,BankAccountService,79,9,8,0,20,1,8,1,4,1
+demo,com.davyraitt.DataAccess_Repository_Layer.database.entitys,BankAccount,52,25,0,0,18,8,12,2,12,2
+demo,com.davyraitt.DataAccess_Repository_Layer.database.entitys,AccountHolder,21,34,0,0,8,11,5,5,5,5
+demo,com.davyraitt.DataAccess_Repository_Layer.database.entitys,BaseEntity,36,3,0,0,13,2,9,1,9,1
+demo,com.davyraitt,Main,23,3,0,0,4,1,1,1,1,1
+demo,com.davyraitt.Presentatie_Controller_Layer.dto,AccountHolderDTO,15,17,0,0,5,8,2,5,2,5
+demo,com.davyraitt.Presentatie_Controller_Layer.dto,BankAccountDTO,44,0,0,0,17,0,9,0,9,0
+demo,com.davyraitt.DataAccess_Repository_Layer.database.mapperinterfaces,BankAccountMapperImpl,102,3,12,0,28,1,10,1,4,1
+demo,com.davyraitt.DataAccess_Repository_Layer.database.mapperinterfaces,AccountHolderMapperImpl,22,46,4,4,8,12,4,4,1,3

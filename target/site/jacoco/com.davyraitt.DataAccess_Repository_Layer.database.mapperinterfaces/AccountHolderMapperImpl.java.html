@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AccountHolderMapperImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.davyraitt.DataAccess_Repository_Layer.database.mapperinterfaces</a> &gt; <span class="el_source">AccountHolderMapperImpl.java</span></div><h1>AccountHolderMapperImpl.java</h1><pre class="source lang-java linenums">package com.davyraitt.DataAccess_Repository_Layer.database.mapperinterfaces;
+
+import com.davyraitt.DataAccess_Repository_Layer.database.entitys.AccountHolder;
+import com.davyraitt.Presentatie_Controller_Layer.dto.AccountHolderDTO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = &quot;org.mapstruct.ap.MappingProcessor&quot;,
+    date = &quot;2022-09-21T12:04:11+0200&quot;,
+    comments = &quot;version: 1.5.2.Final, compiler: javac, environment: Java 17.0.4.1 (Oracle Corporation)&quot;
+)
+@Component
+<span class="fc" id="L16">public class AccountHolderMapperImpl implements AccountHolderMapper {</span>
+
+    @Override
+    public AccountHolderDTO accountHolderToDTO(AccountHolder accountHolder) {
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if ( accountHolder == null ) {</span>
+<span class="nc" id="L21">            return null;</span>
+        }
+
+<span class="fc" id="L24">        AccountHolderDTO accountHolderDTO = new AccountHolderDTO();</span>
+
+<span class="fc" id="L26">        accountHolderDTO.setName( accountHolder.getName() );</span>
+<span class="fc" id="L27">        accountHolderDTO.setBsn( accountHolder.getBsn() );</span>
+
+<span class="fc" id="L29">        return accountHolderDTO;</span>
+    }
+
+    @Override
+    public AccountHolder dtoToEntity(AccountHolderDTO accountHolderDTO) {
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if ( accountHolderDTO == null ) {</span>
+<span class="nc" id="L35">            return null;</span>
+        }
+
+<span class="nc" id="L38">        AccountHolder accountHolder = new AccountHolder();</span>
+
+<span class="nc" id="L40">        accountHolder.setName( accountHolderDTO.getName() );</span>
+<span class="nc" id="L41">        accountHolder.setBsn( accountHolderDTO.getBsn() );</span>
+
+<span class="nc" id="L43">        return accountHolder;</span>
+    }
+
+    @Override
+    public List&lt;AccountHolderDTO&gt; arrayListAccountHolderToDTO(List&lt;AccountHolder&gt; list) {
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if ( list == null ) {</span>
+<span class="nc" id="L49">            return null;</span>
+        }
+
+<span class="fc" id="L52">        List&lt;AccountHolderDTO&gt; list1 = new ArrayList&lt;AccountHolderDTO&gt;( list.size() );</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        for ( AccountHolder accountHolder : list ) {</span>
+<span class="fc" id="L54">            list1.add( accountHolderToDTO( accountHolder ) );</span>
+<span class="fc" id="L55">        }</span>
+
+<span class="fc" id="L57">        return list1;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
