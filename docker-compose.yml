@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  app:
+    image: 'bankaccount-service'
+    container_name: app
+    depends_on:
+      - db
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          cpus: 0.25
+          memory: 256M
+    ports:
+      - "8000:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=compose
+
+  db:
+    image: 'postgres:14.5-alpine'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    container_name: db
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          cpus: 0.25
+          memory: 128M
+    environment:
+      - POSTGRES_DB=account-db
+      - POSTGRES_USER=account-db-user
+      - POSTGRES_PASSWORD=MySecretPwd
+
+volumes:
+  db_data:
