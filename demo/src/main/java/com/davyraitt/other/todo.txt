@@ -1,0 +1,9 @@
+1. DTO's en mappings
+2. Beans annotations
+3. Descriptions API vergelijken met lesvoorbeeld, mis ik iets?
+4. Dependency injection
+5. Spring profiles
+6. BSN verificatie
+
+SQL
+1. spring-boot-starter-data-jpa
