@@ -81,12 +81,12 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME  }}
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: bankaccountservicecicd
-          IMAGE_TAG: ${{ github.event.inputs.version }}
+          IMAGE_TAG: ${{github.run_number}}
         run: |
           echo "Image to deploy: ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
           echo "${PRIVATE_KEY}" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "
             echo \"Image to deploy: ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}\"
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}/${ECR_REPOSITORY}
-            docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod --name ${ECR_REPOSITORY} ${ECR_REGISTRY}/${ECR_REPOSITORY}:"HOI"
+            docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod --name ${ECR_REPOSITORY} ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}
           "
