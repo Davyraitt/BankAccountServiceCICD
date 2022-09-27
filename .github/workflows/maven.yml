@@ -75,19 +75,18 @@ jobs:
           git push origin "Build-v$GITHUB_RUN_NUMBER"
 
       - name: Deploy in EC2
-      - uses: actions/checkout@v2
         env:
           PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY  }}
-          HOSTNAME: ${{ secrets.HOSTNAME  }}
+          HOSTNAME: ec2-44-201-233-27.compute-1.amazonaws.com
           USER_NAME: ${{ secrets.USER_NAME  }}
-        run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key          
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-
-              #Now we have got the access of EC2 and we will start the deploy .
-              cd /home/ubuntu/BankAccountServiceCICD  &&
-              git checkout master &&
-              git fetch --all &&
-              git reset --hard origin/master &&
-              git pull origin master &&
-              docker-compose -f docker-compose.prod.yml up -d --build
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: account-service
+          IMAGE_TAG: ${{ github.event.inputs.version }}
+          run: |
+            echo "Image to deploy: ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
+            echo "${PRIVATE_KEY}" > private_key && chmod 600 private_key
+            ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "
+              echo \"Image to deploy: ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}\"
+              aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}/${ECR_REPOSITORY}
+              docker rm -f account-service
+              docker run -d -p 8080:8080 -e SPRING_PROFILES_ACTIVE=prod --name account-service ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} 
