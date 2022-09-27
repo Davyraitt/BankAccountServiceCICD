@@ -1,9 +1,9 @@
 spring:
 
   datasource:
-    url: jdbc:postgresql://db:5432/account-db
-    username: account-db-user
-    password: MySecretPwd
+    url: jdbc:postgresql://database-1.caf4e3izss8r.us-east-1.rds.amazonaws.com/accountdatabasestaging
+    username: accountdatabaseuser
+    password: yourpassword
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
